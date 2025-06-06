@@ -74,7 +74,7 @@ To create a quirky, anti-productive task manager that:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/procrastinator.git
+git clone https://github.com/yourusername/ProcrastinatorApp.git
 cd procrastinator
 
 # 2. Install dependencies
