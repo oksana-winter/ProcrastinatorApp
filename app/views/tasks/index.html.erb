@@ -1,0 +1,34 @@
+<h1>Your Task List</h1>
+
+<%= link_to "Create New Task", new_task_path, class: "btn btn-primary" %>
+
+<% if @tasks.any? %>
+  <table class="table" style="margin-top: 20px;">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Priority</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= task.title %></td>
+          <td><%= task.status %></td>
+          <td><%= task.priority.present? ? task.priority.capitalize : "Not Set" %></td> <!-- Проверка на nil -->
+          <td><%= task.created_at.strftime("%d.%m.%Y %H:%M") %></td>
+          <td>
+           <%= link_to "Edit", edit_task_path(task), class: "btn btn-warning btn-sm" %>
+            <%= button_to "Delete", task_path(task), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No tasks yet. Create your first one!</p>
+<% end %>
+

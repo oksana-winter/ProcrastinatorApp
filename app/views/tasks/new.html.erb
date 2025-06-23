@@ -1,0 +1,23 @@
+<h1>Create a New Task</h1>
+
+<%= form_with model: @task, local: true, class: "mt-4" do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "Enter task title" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :status, class: "form-label" %>
+    <%= form.select :status, ['pending', 'completed', 'postponed'], {}, class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :priority, class: "form-label" %>
+    <%= form.select :priority, ['low', 'medium', 'high'], {}, class: "form-select" %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Task", class: "btn btn-primary" %>
+    <%= link_to "Back to Tasks", tasks_path, class: "btn btn-secondary ms-2" %>
+  </div>
+<% end %>
